@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@400;600;700&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Typography sizes */
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-h1: 36px;
+  --text-h2: 28px;
+  --text-h3: 23px;
+  --text-h4: 19px;
+  --text-md: 20px;
+  --text-link: 17px;
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  /* The default background color for the application. */
+  --background: rgba(255, 255, 255, 1.00);
+  /* The default color for elements or text that appears on top of the background. */
+  --foreground: rgba(51, 51, 51, 1.00);
+  /* The background color for cards, modals, and other containers. */
+  --card: rgba(255, 255, 255, 1.00);
+  /* The default color for text or elements that appear on top of cards, modals and other background containers. */
+  --card-foreground: rgba(51, 51, 51, 1.00);
+  /* The background color for dropdowns and tooltips. */
+  --popover: rgba(255, 255, 255, 1.00);
+  /* The default color for text or elements that appear on top of dropdowns and tooltips. */
+  --popover-foreground: rgba(51, 51, 51, 1.00);
+  /* The primary color used for buttons, links, and other interactive elements. */
+  --primary: rgba(255, 109, 34, 1.00);
+  /* The default color for text or elements that appear on top of primary colored elements. */
+  --primary-foreground: rgba(255, 255, 255, 1.00);
+  /* The secondary color used for secondary(but NOT-DESTRUCTIVE) buttons and interactive elements. */
+  --secondary: rgba(0, 101, 189, 1.00);
+  /* The default color for text or elements that appear on top of secondary colored elements. */
+  --secondary-foreground: rgba(255, 255, 255, 1.00);
+  /* The muted color used for less prominent elements, such as disabled buttons or disabled text. */
+  --muted: rgba(244, 244, 244, 1.00);
+  /* The default color for text or elements that appear on top of muted colored elements. */
+  --muted-foreground: rgba(102, 102, 102, 1.00);
+  /* The accent color used for highlights, links, and other interactive elements. */
+  --accent: rgba(0, 101, 189, 1.00);
+  /* The default color for text or elements that appear on top of accent colored elements. */
+  --accent-foreground: rgba(255, 255, 255, 1.00);
+  /* The color used for background in destructive actions, such as delete buttons or error messages. */
+  --destructive: rgba(213, 43, 30, 1.00);
+  /* The default color for text or elements that appear on top of destructive colored elements. */
+  --destructive-foreground: rgba(255, 255, 255, 1.00);
+  /* The default border color for elements such as inputs, buttons, and other containers. */
+  --border: rgba(221, 221, 221, 1.00);
+  /* The default background color for input fields once the text has been filled. Should be either transparent or match the input-background. */
+  --input: rgba(0, 0, 0, 0);
+  /* The default background color for input fields, text areas, and other input elements. */
+  --input-background: rgba(255, 255, 255, 1.00);
+  /* The color for focus rings, outlines, and other focus indicators. */
+  --ring: rgba(255, 109, 34, 1.00);
+  /* Shadow for small elevations, such as cards or modals. */
+  --elevation-sm: 1px 1px 2px 0px rgba(0,0,0,0.25);
+  /* The color for chart elements, such as a bar or line in a chart. */
+  --chart-1: rgba(255, 109, 34, 1.00);
+  /* The color for another chart element, such as a bar or line in a chart. */
+  --chart-2: rgba(0, 101, 189, 1.00);
+  /* The color for another chart element, such as a bar or line in a chart. */
+  --chart-3: rgba(146, 212, 0, 1.00);
+  /* The color for another chart element, such as a bar or line in a chart. */
+  --chart-4: rgba(0, 159, 218, 1.00);
+  /* The color for another chart element, such as a bar or line in a chart. */
+  --chart-5: rgba(253, 200, 47, 1.00);
+  /* The default border radius for elements such as buttons, cards, and other containers. */
+  --radius: 5px;
+  /* The border radius for button elements. */
+  --radius-button: 30px;
+  /* The border radius for CTA elements. */
+  --radius-cta: 100px;
+  /* The background color for sidebars, navigation menus, and other persistent elements. */
+  --sidebar: rgba(255, 255, 255, 1.00);
+  /* The default color for text or elements that appear on top of sidebars, navigation menus, and other persistent elements. */
+  --sidebar-foreground: rgba(51, 51, 51, 1.00);
+  /* The primary color used for buttons, links, and other interactive elements in sidebars and navigation menus. */
+  --sidebar-primary: rgba(255, 109, 34, 1.00);
+  /* The default color for text or elements that appear on top of primary colored elements in sidebars and navigation menus. */
+  --sidebar-primary-foreground: rgba(255, 255, 255, 1.00);
+  /* The accent color used for highlights, links, and other interactive elements in sidebars and navigation menus. */
+  --sidebar-accent: rgba(0, 101, 189, 1.00);
+  /* The default color for text or elements that appear on top of accent colored elements in sidebars and navigation menus. */
+  --sidebar-accent-foreground: rgba(255, 255, 255, 1.00);
+  /* The default border color for elements in sidebars and navigation menus. */
+  --sidebar-border: rgba(221, 221, 221, 1.00);
+  /* The default color for focus rings, outlines, and other focus indicators in sidebars and navigation menus. */
+  --sidebar-ring: rgba(255, 109, 34, 1.00);
+}
+
+.dark {
+  --background: rgba(51, 51, 51, 1.00);
+  --foreground: rgba(255, 255, 255, 1.00);
+  --card: rgba(51, 51, 51, 1.00);
+  --card-foreground: rgba(255, 255, 255, 1.00);
+  --popover: rgba(51, 51, 51, 1.00);
+  --popover-foreground: rgba(255, 255, 255, 1.00);
+  --primary: rgba(255, 109, 34, 1.00);
+  --primary-foreground: rgba(255, 255, 255, 1.00);
+  --secondary: rgba(0, 101, 189, 1.00);
+  --secondary-foreground: rgba(255, 255, 255, 1.00);
+  --muted: rgba(102, 102, 102, 1.00);
+  --muted-foreground: rgba(244, 244, 244, 1.00);
+  --accent: rgba(0, 101, 189, 1.00);
+  --accent-foreground: rgba(255, 255, 255, 1.00);
+  --destructive: rgba(213, 43, 30, 1.00);
+  --destructive-foreground: rgba(255, 255, 255, 1.00);
+  --border: rgba(102, 102, 102, 1.00);
+  --input: rgba(102, 102, 102, 1.00);
+  --ring: rgba(255, 109, 34, 1.00);
+  --sidebar: rgba(51, 51, 51, 1.00);
+  --sidebar-foreground: rgba(255, 255, 255, 1.00);
+  --sidebar-primary: rgba(255, 109, 34, 1.00);
+  --sidebar-primary-foreground: rgba(255, 255, 255, 1.00);
+  --sidebar-accent: rgba(0, 101, 189, 1.00);
+  --sidebar-accent-foreground: rgba(255, 255, 255, 1.00);
+  --sidebar-border: rgba(102, 102, 102, 1.00);
+  --sidebar-ring: rgba(255, 109, 34, 1.00);
+}
+
+/* ============================================================================
+   PLATFORM UI - Rainbow Gradient System
+   ============================================================================
+   These colors are used ONLY in the Platform UI (admin interface).
+   They create a vibrant, whimsical 90s retro aesthetic.
+   
+   CUPABU prototypes should NOT use these - they use the variables above.
+   ============================================================================ */
+
+.platform-ui {
+  /* Rainbow gradient palette - Purple → Pink → Orange → Yellow */
+  --platform-purple: #a855f7;      /* Purple 500 */
+  --platform-pink: #ec4899;        /* Pink 500 */
+  --platform-orange: #ff6d22;      /* CUPABU Orange (slightly adjusted) */
+  --platform-yellow: #fbbf24;      /* Amber 400 */
+  --platform-cyan: #06b6d4;        /* Cyan 500 */
+  
+  /* Contextual usage */
+  --platform-primary-start: var(--platform-purple);
+  --platform-primary-end: var(--platform-pink);
+  --platform-accent: var(--platform-orange);
+  --platform-highlight: var(--platform-yellow);
+  
+  /* Background gradient orbs */
+  --platform-orb-1: var(--platform-purple);
+  --platform-orb-2: var(--platform-pink);
+  --platform-orb-3: var(--platform-orange);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 5px);
+  --radius-xl: calc(var(--radius) + 10px);
+  --radius-button: var(--radius-button);
+  --radius-cta: var(--radius-cta);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    font-family: 'Proxima Nova', sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Proxima Nova', sans-serif;
+  }
+}
+
+/* Gradient animation for platform UI buttons */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+h1 {
+  font-family: 'Proxima Nova', sans-serif;
+  font-size: var(--text-h1);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.5;
+}
+
+h2 {
+  font-family: 'Proxima Nova', sans-serif;
+  font-size: var(--text-h2);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.5;
+}
+
+h3 {
+  font-family: 'Proxima Nova', sans-serif;
+  font-size: var(--text-h3);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.5;
+}
+
+h4 {
+  font-family: 'Proxima Nova', sans-serif;
+  font-size: var(--text-h4);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.5;
+}
+
+p {
+  font-family: 'Proxima Nova', sans-serif;
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+}
+
+span {
+  font-family: 'Proxima Nova', sans-serif;
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+}
+
+label {
+  font-family: 'Proxima Nova', sans-serif;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+}
+
+button {
+  font-family: 'Proxima Nova', sans-serif;
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.5;
+}
+
+input {
+  font-family: 'Proxima Nova', sans-serif;
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+}
+
+.text-body-medium {
+  font-family: 'Proxima Nova', sans-serif;
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+}
+
+.text-link {
+  font-family: 'Proxima Nova', sans-serif;
+  font-size: var(--text-link);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.5;
+}
+
+/* Typography utility classes - override Tailwind defaults with CSS variables */
+.text-xs {
+  font-size: var(--text-xs) !important;
+}
+
+.text-sm {
+  font-size: var(--text-sm) !important;
+}
+
+.text-base {
+  font-size: var(--text-base) !important;
+}
+
+.text-lg {
+  font-size: var(--text-lg) !important;
+}
+
+.text-xl {
+  font-size: var(--text-xl) !important;
+}
+
+.text-2xl {
+  font-size: var(--text-2xl) !important;
+}
+
+html {
+  font-size: 16px;
+}
