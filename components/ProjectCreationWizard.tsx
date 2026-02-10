@@ -10,15 +10,15 @@ import {
   ExternalLink, 
   Upload, 
   FileText, 
-  CheckCircle2, 
-  LayoutDashboard, 
-  ShoppingCart, 
-  Search, 
-  Layers, 
-  Monitor, 
-  Smartphone, 
-  Plus, 
-  Trash2 
+  CheckCircle2,
+  LayoutDashboard,
+  ShoppingCart,
+  Search,
+  Layers,
+  Monitor,
+  Smartphone,
+  Plus,
+  Trash2
 } from 'lucide-react';
 import { BAYMARD_TOPICS, PROTOTYPE_TEMPLATES, BAYMARD_SCREENSHOT_GUIDE, type BaymardTopic } from '../config/baymard-topics';
 import { DESIGN_THINKING_STAGES, DESIGN_THINKING_STAGES_ARRAY, FIDELITY_LEVELS, FIDELITY_LEVELS_ARRAY, type DesignThinkingStage } from '../config/design-thinking';
@@ -1002,32 +1002,9 @@ export function ProjectCreationWizard({ onClose, onCreateProject }: ProjectCreat
                       </div>
                     )}
                     {!notionUrl && !researchNotes && (
-                      <p className="text-gray-400 text-sm">No additional documentation provided.</p>
+                      <p className="text-gray-400 italic" style={{ fontFamily: "'Proxima Nova', sans-serif", fontSize: 'var(--text-xs)' }}>No additional documentation provided</p>
                     )}
                   </dl>
-                </div>
-
-                {/* Flows */}
-                <div className="bg-white/5 border border-white/10 rounded-xl p-5">
-                  <h4 className="text-white mb-3 flex items-center gap-2" style={{ fontFamily: "'Proxima Nova', sans-serif", fontSize: 'var(--text-sm)', fontWeight: 'var(--font-weight-semibold)' }}>
-                    <Layers className="w-4 h-4" />
-                    Demo Flows ({flows.length})
-                  </h4>
-                  <div className="space-y-2">
-                    {flows.map(flow => (
-                      <div key={flow.id} className="flex items-center justify-between">
-                        <div>
-                          <span className="text-white block" style={{ fontFamily: "'Proxima Nova', sans-serif", fontSize: 'var(--text-sm)' }}>{flow.name}</span>
-                          <span className="text-gray-400 text-xs">{flow.description}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="px-2 py-0.5 bg-white/10 text-gray-300 rounded-lg" style={{ fontFamily: "'Proxima Nova', sans-serif", fontSize: 'var(--text-xs)' }}>
-                            {flow.fidelity}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               </div>
             </div>
@@ -1037,36 +1014,38 @@ export function ProjectCreationWizard({ onClose, onCreateProject }: ProjectCreat
         {/* Footer */}
         <div className="px-8 py-5 border-t border-white/10 bg-black/20">
           <div className="flex items-center justify-between">
+            <div className="text-gray-400 text-xs">
+              {currentStep !== 'design-thinking' && (
+                <button
+                  onClick={handleBack}
+                  className="flex items-center gap-1 hover:text-white transition-colors"
+                >
+                  <ArrowLeft className="w-3 h-3" />
+                  Back
+                </button>
+              )}
+            </div>
             <button
-              onClick={handleBack}
-              disabled={currentStep === 'design-thinking'}
-              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{ fontFamily: "'Proxima Nova', sans-serif", fontSize: 'var(--text-sm)', fontWeight: 'var(--font-weight-semibold)' }}
+              onClick={currentStep === 'review' ? handleCreate : handleNext}
+              disabled={!canProceed()}
+              className={`flex items-center gap-2 px-6 py-2.5 rounded-[--radius-button] font-[--font-weight-semibold] transition-all ${
+                canProceed()
+                  ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-500/50 hover:scale-105'
+                  : 'bg-white/10 text-gray-500 cursor-not-allowed'
+              }`}
             >
-              <ArrowLeft className="w-4 h-4" />
-              Back
+              {currentStep === 'review' ? (
+                <>
+                  <Sparkles className="w-4 h-4" />
+                  Create Prototype
+                </>
+              ) : (
+                <>
+                  Next Step
+                  <ArrowRight className="w-4 h-4" />
+                </>
+              )}
             </button>
-
-            {currentStep === 'review' ? (
-              <button
-                onClick={handleCreate}
-                className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl hover:shadow-lg hover:shadow-purple-500/50 transition-all font-semibold flex items-center gap-2 hover:scale-105"
-                style={{ fontFamily: "'Proxima Nova', sans-serif", fontSize: 'var(--text-sm)', fontWeight: 'var(--font-weight-bold)' }}
-              >
-                <Sparkles className="w-4 h-4" />
-                Create Prototype
-              </button>
-            ) : (
-              <button
-                onClick={handleNext}
-                disabled={!canProceed()}
-                className="px-6 py-3 bg-white text-black rounded-xl hover:bg-gray-200 transition-colors font-semibold flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                style={{ fontFamily: "'Proxima Nova', sans-serif", fontSize: 'var(--text-sm)', fontWeight: 'var(--font-weight-bold)' }}
-              >
-                Next Step
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            )}
           </div>
         </div>
       </div>
